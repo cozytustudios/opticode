@@ -1,0 +1,1235 @@
+/* Opticode v2.5 - Major UI Upgrade */
+/* ChatGPT-inspired chat + Professional IDE overhaul */
+/* Made by Cozytustudios */
+
+/* ==================== GLOBAL UPGRADES ==================== */
+:root {
+    --chat-bg: #0d0d12;
+    --chat-msg-user: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    --chat-msg-ai: #1a1a26;
+    --chat-msg-ai-border: #2a2a3e;
+    --chat-input-bg: #16161f;
+    --chat-input-border: #2d2d42;
+    --chat-input-focus: #7c3aed;
+    --accent-glow: rgba(124, 58, 237, 0.3);
+    --accent-pink: #ec4899;
+    --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+    --surface-elevated: #1e1e2e;
+    --surface-glass: rgba(30, 30, 46, 0.85);
+    --text-bright: #f8fafc;
+    --radius-xl: 20px;
+    --radius-2xl: 24px;
+    --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.15);
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Better scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(124, 58, 237, 0.3);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(124, 58, 237, 0.5);
+}
+
+/* ==================== SPLASH SCREEN UPGRADE ==================== */
+.splash-screen {
+    background: radial-gradient(ellipse at center, #1a1028 0%, #0a0a0f 70%) !important;
+}
+
+.splash-screen .logo-icon img {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.4), 0 0 80px rgba(236, 72, 153, 0.2);
+}
+
+.splash-screen .logo-text {
+    font-size: 2.5rem !important;
+    background: var(--accent-gradient) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-weight: 800 !important;
+}
+
+.splash-screen .loading-bar {
+    background: rgba(124, 58, 237, 0.15) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    height: 4px !important;
+}
+
+.splash-screen .loading-progress {
+    background: var(--accent-gradient) !important;
+    border-radius: 12px !important;
+}
+
+/* ==================== AUTH SCREEN UPGRADE ==================== */
+.auth-screen {
+    background: radial-gradient(ellipse at 30% 30%, rgba(124, 58, 237, 0.08), transparent 60%),
+                radial-gradient(ellipse at 70% 70%, rgba(236, 72, 153, 0.06), transparent 60%),
+                #0a0a0f !important;
+}
+
+.auth-container {
+    background: var(--surface-glass) !important;
+    backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(124, 58, 237, 0.15) !important;
+    border-radius: var(--radius-2xl) !important;
+    box-shadow: var(--shadow-card), var(--shadow-glow) !important;
+    padding: 40px !important;
+    max-width: 440px !important;
+}
+
+.auth-container .logo-small img {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+}
+
+.auth-tabs {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 14px !important;
+    padding: 4px !important;
+}
+
+.auth-tab {
+    border-radius: 11px !important;
+    font-weight: 600 !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.auth-tab.active {
+    background: var(--accent-gradient) !important;
+    color: white !important;
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.4) !important;
+}
+
+.auth-form .input-group {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 14px !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.auth-form .input-group:focus-within {
+    border-color: var(--chat-input-focus) !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
+}
+
+.btn-primary {
+    background: var(--accent-gradient) !important;
+    border: none !important;
+    border-radius: 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3) !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 24px rgba(124, 58, 237, 0.4) !important;
+}
+
+/* ==================== ACTIVITY BAR UPGRADE ==================== */
+.activity-bar {
+    background: linear-gradient(180deg, #0e0e16 0%, #0a0a12 100%) !important;
+    border-right: 1px solid rgba(124, 58, 237, 0.1) !important;
+    width: 52px !important;
+    min-width: 52px !important;
+}
+
+.activity-icon {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 12px !important;
+    transition: var(--transition-smooth) !important;
+    position: relative !important;
+}
+
+.activity-icon:hover {
+    background: rgba(124, 58, 237, 0.12) !important;
+    color: var(--text-bright) !important;
+}
+
+.activity-icon.active {
+    color: #a855f7 !important;
+    background: rgba(124, 58, 237, 0.15) !important;
+}
+
+.activity-icon.active::before {
+    content: '' !important;
+    position: absolute !important;
+    left: -6px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 3px !important;
+    height: 20px !important;
+    background: var(--accent-gradient) !important;
+    border-radius: 0 4px 4px 0 !important;
+}
+
+/* ==================== TOP BAR UPGRADE ==================== */
+.top-bar {
+    background: rgba(14, 14, 22, 0.9) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.08) !important;
+    padding: 8px 16px !important;
+    height: 48px !important;
+}
+
+.top-bar .icon-btn {
+    border-radius: 10px !important;
+    width: 34px !important;
+    height: 34px !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.top-bar .icon-btn:hover {
+    background: rgba(124, 58, 237, 0.15) !important;
+    color: var(--text-bright) !important;
+}
+
+.session-timer {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 11px !important;
+    color: rgba(168, 85, 247, 0.6) !important;
+    background: rgba(124, 58, 237, 0.08) !important;
+    padding: 2px 8px !important;
+    border-radius: 8px !important;
+}
+
+/* ==================== WELCOME PANEL UPGRADE ==================== */
+.welcome-panel {
+    background: radial-gradient(ellipse at 40% 40%, rgba(124, 58, 237, 0.06), transparent 60%),
+                radial-gradient(ellipse at 60% 60%, rgba(236, 72, 153, 0.04), transparent 60%) !important;
+}
+
+.welcome-panel .welcome-logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 22px;
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.welcome-panel .welcome-logo img:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 0 60px rgba(124, 58, 237, 0.5);
+}
+
+.welcome-panel h1 {
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+}
+
+.welcome-panel .gradient-text {
+    background: var(--accent-gradient) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.quick-actions {
+    gap: 16px !important;
+}
+
+.action-card {
+    background: var(--surface-glass) !important;
+    border: 1px solid rgba(124, 58, 237, 0.12) !important;
+    border-radius: 18px !important;
+    padding: 24px 20px !important;
+    transition: var(--transition-smooth) !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+.action-card:hover {
+    border-color: rgba(124, 58, 237, 0.3) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.15) !important;
+}
+
+.action-card i {
+    font-size: 28px !important;
+    background: var(--accent-gradient) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* ==================== CHAT PANEL - CHATGPT-STYLE REDESIGN ==================== */
+.chat-panel.chat-ui-v2 {
+    background: var(--chat-bg) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border: none !important;
+    position: relative !important;
+}
+
+/* Chat Header - Sleek */
+.chat-panel .chat-header {
+    background: rgba(14, 14, 22, 0.95) !important;
+    backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.1) !important;
+    padding: 10px 16px !important;
+    min-height: auto !important;
+}
+
+.chat-context-pill {
+    background: rgba(124, 58, 237, 0.1) !important;
+    border: 1px solid rgba(124, 58, 237, 0.2) !important;
+    border-radius: 20px !important;
+    padding: 4px 14px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #a855f7 !important;
+}
+
+.pill-dot {
+    width: 7px !important;
+    height: 7px !important;
+    background: #22c55e !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+    margin-right: 6px !important;
+    animation: pulse-dot 2s infinite !important;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+    50% { opacity: 0.8; box-shadow: 0 0 0 4px rgba(34, 197, 94, 0); }
+}
+
+.model-selector select {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 10px !important;
+    color: var(--text-bright) !important;
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+}
+
+.model-tier {
+    font-size: 10px !important;
+    padding: 2px 10px !important;
+    border-radius: 12px !important;
+    background: rgba(124, 58, 237, 0.15) !important;
+    color: #c084fc !important;
+    font-weight: 600 !important;
+}
+
+.ai-status {
+    font-size: 10px !important;
+    padding: 2px 10px !important;
+    border-radius: 12px !important;
+}
+
+/* ==================== CHAT MESSAGES - ChatGPT Style ==================== */
+.chat-messages {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    background: var(--chat-bg) !important;
+}
+
+/* Message bubbles */
+.message {
+    display: flex !important;
+    gap: 12px !important;
+    padding: 16px 20px !important;
+    border-radius: 16px !important;
+    max-width: 100% !important;
+    animation: msgSlideIn 0.3s ease !important;
+    position: relative !important;
+    transition: background 0.2s ease !important;
+}
+
+@keyframes msgSlideIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.message:hover {
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.message.user {
+    background: transparent !important;
+}
+
+.message.assistant {
+    background: rgba(124, 58, 237, 0.04) !important;
+    border: none !important;
+}
+
+.message.assistant:hover {
+    background: rgba(124, 58, 237, 0.07) !important;
+}
+
+/* Avatars - ChatGPT style */
+.message-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    flex-shrink: 0 !important;
+    margin-top: 2px !important;
+}
+
+.message.user .message-avatar {
+    background: var(--accent-gradient) !important;
+    color: white !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3) !important;
+}
+
+.message.assistant .message-avatar {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
+}
+
+.message.system .message-avatar {
+    background: rgba(245, 158, 11, 0.15) !important;
+    color: #f59e0b !important;
+}
+
+/* Message content */
+.message-content {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.message-meta {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 4px !important;
+}
+
+.message-role {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: var(--text-bright) !important;
+}
+
+.message-time {
+    font-size: 11px !important;
+    color: var(--text-muted) !important;
+}
+
+.message-text {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    color: var(--text-primary) !important;
+    word-wrap: break-word !important;
+}
+
+.message-text p {
+    margin: 0 0 8px 0 !important;
+}
+
+.message-text code {
+    background: rgba(124, 58, 237, 0.12) !important;
+    border: 1px solid rgba(124, 58, 237, 0.15) !important;
+    border-radius: 6px !important;
+    padding: 2px 6px !important;
+    font-size: 12px !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    color: #c084fc !important;
+}
+
+.message-text pre.code-block {
+    background: #0a0a14 !important;
+    border: 1px solid rgba(124, 58, 237, 0.12) !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    margin: 10px 0 !important;
+    overflow-x: auto !important;
+    position: relative !important;
+}
+
+.message-text pre.code-block::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 10px;
+    color: rgba(168, 85, 247, 0.5);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.message-text pre.code-block code {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    color: #e2e8f0 !important;
+    font-size: 13px !important;
+}
+
+/* Chat image attachments */
+.chat-image {
+    max-width: 300px !important;
+    max-height: 250px !important;
+    border-radius: 14px !important;
+    margin-top: 8px !important;
+    border: 1px solid rgba(124, 58, 237, 0.15) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+    object-fit: cover !important;
+}
+
+/* Streaming cursor */
+.streaming-cursor {
+    display: inline-block !important;
+    width: 2px !important;
+    height: 16px !important;
+    background: var(--accent-pink) !important;
+    margin-left: 2px !important;
+    animation: cursorBlink 0.8s infinite !important;
+    vertical-align: text-bottom !important;
+}
+
+@keyframes cursorBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Typing indicator */
+.typing-indicator {
+    display: flex !important;
+    gap: 5px !important;
+    padding: 6px 4px !important;
+}
+
+.typing-indicator span {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #7c3aed !important;
+    animation: typingBounce 1.4s infinite !important;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s !important;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s !important;
+}
+
+@keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-8px); opacity: 1; }
+}
+
+/* Code summary card */
+.code-summary-card {
+    background: rgba(16, 185, 129, 0.08) !important;
+    border: 1px solid rgba(16, 185, 129, 0.2) !important;
+    border-radius: 14px !important;
+    padding: 16px !important;
+}
+
+.summary-header {
+    color: #10b981 !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+}
+
+.summary-header i {
+    margin-right: 6px !important;
+}
+
+.summary-tip {
+    font-size: 12px !important;
+    color: var(--text-secondary) !important;
+    margin-top: 8px !important;
+}
+
+.summary-tip i {
+    color: #f59e0b !important;
+    margin-right: 4px !important;
+}
+
+/* ==================== CHAT INPUT DECK - ChatGPT STYLE ==================== */
+.chat-deck-container {
+    padding: 12px 16px 16px !important;
+    background: linear-gradient(180deg, transparent 0%, var(--chat-bg) 30%) !important;
+}
+
+.chat-deck-meta {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 8px !important;
+    flex-wrap: wrap !important;
+}
+
+.thinking-selector {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.thinking-selector label {
+    font-size: 11px !important;
+    color: var(--text-muted) !important;
+    font-weight: 600 !important;
+}
+
+.thinking-selector select {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 8px !important;
+    color: var(--text-primary) !important;
+    font-size: 11px !important;
+    padding: 3px 6px !important;
+}
+
+.credit-pill {
+    font-size: 10px !important;
+    background: rgba(124, 58, 237, 0.1) !important;
+    color: #c084fc !important;
+    padding: 2px 10px !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+}
+
+/* The main input area - ChatGPT floating style */
+.chat-deck {
+    background: var(--chat-input-bg) !important;
+    border: 1px solid var(--chat-input-border) !important;
+    border-radius: 18px !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    gap: 4px !important;
+    padding: 8px 8px 8px 12px !important;
+    transition: var(--transition-smooth) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.chat-deck:focus-within {
+    border-color: rgba(124, 58, 237, 0.4) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(124, 58, 237, 0.1) !important;
+}
+
+.deck-btn {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    border-radius: 12px !important;
+    border: none !important;
+    background: transparent !important;
+    color: var(--text-muted) !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: var(--transition-smooth) !important;
+    font-size: 14px !important;
+}
+
+.deck-btn:hover {
+    background: rgba(124, 58, 237, 0.12) !important;
+    color: var(--text-bright) !important;
+}
+
+/* Mode button */
+.deck-btn.mode-btn {
+    width: auto !important;
+    padding: 0 12px !important;
+    font-size: 12px !important;
+    gap: 6px !important;
+    background: rgba(124, 58, 237, 0.08) !important;
+    color: #c084fc !important;
+    font-weight: 600 !important;
+}
+
+.deck-btn.mode-btn:hover {
+    background: rgba(124, 58, 237, 0.18) !important;
+}
+
+/* Input textarea */
+.deck-input-wrapper {
+    flex: 1 !important;
+}
+
+.deck-input-wrapper textarea,
+#chat-input {
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-bright) !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    resize: none !important;
+    width: 100% !important;
+    font-family: 'Inter', sans-serif !important;
+    padding: 6px 4px !important;
+    max-height: 200px !important;
+}
+
+#chat-input::placeholder {
+    color: rgba(160, 160, 176, 0.5) !important;
+}
+
+#chat-input:focus {
+    outline: none !important;
+}
+
+/* Send button - circular gradient */
+.deck-btn.send-btn {
+    background: var(--accent-gradient) !important;
+    color: white !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3) !important;
+}
+
+.deck-btn.send-btn:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.4) !important;
+}
+
+/* Voice button active state */
+.deck-btn.recording,
+#voice-input-btn.recording {
+    background: rgba(239, 68, 68, 0.15) !important;
+    color: #ef4444 !important;
+    animation: voicePulse 1.5s infinite !important;
+}
+
+@keyframes voicePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.3); }
+    50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+}
+
+/* ==================== VOICE INPUT OVERLAY ==================== */
+.voice-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    animation: fadeIn 0.3s ease;
+}
+
+.voice-overlay .voice-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    color: white;
+    animation: voiceRipple 2s infinite;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.4);
+}
+
+@keyframes voiceRipple {
+    0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
+    50% { box-shadow: 0 0 0 20px rgba(124, 58, 237, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+}
+
+.voice-overlay .voice-text {
+    font-size: 18px;
+    color: var(--text-bright);
+    font-weight: 600;
+}
+
+.voice-overlay .voice-transcript {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 500px;
+    text-align: center;
+    min-height: 24px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.voice-overlay .voice-lang-toggle {
+    display: flex;
+    gap: 8px;
+}
+
+.voice-overlay .voice-lang-btn {
+    padding: 8px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.voice-overlay .voice-lang-btn.active {
+    background: var(--accent-gradient);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.3);
+}
+
+.voice-overlay .voice-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.voice-overlay .voice-action-btn {
+    padding: 10px 24px;
+    border-radius: 14px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.voice-overlay .voice-cancel-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.voice-overlay .voice-send-btn {
+    background: var(--accent-gradient);
+    color: white;
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.3);
+}
+
+/* ==================== IMAGE ATTACH PREVIEW ==================== */
+.image-attach-preview {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: rgba(124, 58, 237, 0.08);
+    border: 1px solid rgba(124, 58, 237, 0.15);
+    border-radius: 12px;
+    margin-bottom: 8px;
+    animation: fadeIn 0.2s ease;
+}
+
+.image-attach-preview img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.image-attach-preview .attach-info {
+    flex: 1;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.image-attach-preview .attach-remove {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    transition: var(--transition-smooth);
+}
+
+.image-attach-preview .attach-remove:hover {
+    background: rgba(239, 68, 68, 0.3);
+}
+
+/* ==================== SUGGESTION CHIPS ==================== */
+.input-suggestions {
+    display: flex !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    padding: 0 0 10px 0 !important;
+}
+
+.suggestion-chip {
+    background: rgba(124, 58, 237, 0.08) !important;
+    border: 1px solid rgba(124, 58, 237, 0.15) !important;
+    border-radius: 14px !important;
+    padding: 10px 16px !important;
+    color: var(--text-primary) !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+    transition: var(--transition-smooth) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+}
+
+.suggestion-chip span {
+    font-size: 11px !important;
+    color: var(--text-muted) !important;
+}
+
+.suggestion-chip:hover {
+    background: rgba(124, 58, 237, 0.15) !important;
+    border-color: rgba(124, 58, 237, 0.3) !important;
+    transform: translateY(-2px) !important;
+}
+
+.suggestion-chip i {
+    color: #a855f7 !important;
+    margin-right: 6px !important;
+}
+
+/* ==================== DEV PANEL / EDITOR UPGRADE ==================== */
+.dev-panel {
+    background: #0e0e16 !important;
+    border-left: 1px solid rgba(124, 58, 237, 0.08) !important;
+}
+
+.workspace-tabs {
+    background: rgba(14, 14, 22, 0.95) !important;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.08) !important;
+}
+
+.workspace-tab {
+    border-radius: 0 !important;
+    transition: var(--transition-smooth) !important;
+    border-bottom: 2px solid transparent !important;
+    padding: 8px 16px !important;
+}
+
+.workspace-tab.active {
+    background: transparent !important;
+    border-bottom-color: #7c3aed !important;
+    color: var(--text-bright) !important;
+}
+
+.workspace-tab:hover {
+    color: var(--text-bright) !important;
+    background: rgba(124, 58, 237, 0.06) !important;
+}
+
+/* Editor area */
+.editor-container {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.editor-body {
+    background: #0a0a12 !important;
+}
+
+.editor-gutter {
+    background: linear-gradient(180deg, #0c0c14 0%, #0a0a12 100%) !important;
+    border-right: 1px solid rgba(124, 58, 237, 0.06) !important;
+}
+
+#code-editor {
+    background: #0a0a12 !important;
+    color: #e2e8f0 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+}
+
+/* Editor tabs */
+.editor-tabs {
+    background: rgba(14, 14, 22, 0.8) !important;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.06) !important;
+}
+
+/* Preview iframe */
+.preview-canvas {
+    background: #ffffff !important;
+    border-radius: 0 !important;
+}
+
+/* ==================== MODALS UPGRADE ==================== */
+.modal {
+    backdrop-filter: blur(8px) !important;
+}
+
+.modal-content {
+    background: var(--surface-elevated) !important;
+    border: 1px solid rgba(124, 58, 237, 0.12) !important;
+    border-radius: var(--radius-2xl) !important;
+    box-shadow: var(--shadow-card), var(--shadow-glow) !important;
+}
+
+.modal-content.large {
+    border-radius: var(--radius-xl) !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(124, 58, 237, 0.08) !important;
+}
+
+.modal-header h3 {
+    font-weight: 700 !important;
+}
+
+/* Settings */
+.settings-section {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+.settings-section h4 {
+    font-weight: 700 !important;
+    color: #a855f7 !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.setting-item select,
+.setting-item input[type="text"],
+.setting-item input[type="password"] {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 10px !important;
+    color: var(--text-bright) !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.setting-item select:focus,
+.setting-item input:focus {
+    border-color: rgba(124, 58, 237, 0.4) !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1) !important;
+}
+
+/* Toggle switch */
+.toggle-slider {
+    border-radius: 14px !important;
+}
+
+.toggle-slider::before {
+    border-radius: 50% !important;
+}
+
+/* ==================== SUBSCRIPTION / PLANS UPGRADE ==================== */
+.subscription-screen {
+    background: radial-gradient(ellipse at center, #1a1028 0%, #0a0a0f 70%) !important;
+}
+
+.plan-card {
+    background: var(--surface-elevated) !important;
+    border: 1px solid rgba(124, 58, 237, 0.1) !important;
+    border-radius: var(--radius-xl) !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.plan-card:hover {
+    border-color: rgba(124, 58, 237, 0.3) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.15) !important;
+}
+
+.plan-card.population,
+.plan-card.premium {
+    border-color: rgba(124, 58, 237, 0.3) !important;
+}
+
+.plan-tag {
+    background: var(--accent-gradient) !important;
+    color: white !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 11px !important;
+}
+
+.ultra-agent-banner {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(236, 72, 153, 0.1)) !important;
+    border: 1px solid rgba(124, 58, 237, 0.2) !important;
+    border-radius: var(--radius-xl) !important;
+}
+
+/* ==================== RESEARCH WINDOW UPGRADE ==================== */
+.research-window {
+    background: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(12px) !important;
+}
+
+.research-container {
+    background: var(--surface-elevated) !important;
+    border: 1px solid rgba(124, 58, 237, 0.12) !important;
+    border-radius: var(--radius-2xl) !important;
+    box-shadow: var(--shadow-card), var(--shadow-glow) !important;
+}
+
+.research-header {
+    border-bottom: 1px solid rgba(124, 58, 237, 0.08) !important;
+}
+
+.research-mode-btn {
+    border-radius: 10px !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.research-mode-btn.active {
+    background: rgba(124, 58, 237, 0.15) !important;
+    color: #a855f7 !important;
+}
+
+.research-chip {
+    background: rgba(124, 58, 237, 0.08) !important;
+    border: 1px solid rgba(124, 58, 237, 0.15) !important;
+    border-radius: 14px !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.research-chip:hover {
+    background: rgba(124, 58, 237, 0.15) !important;
+    transform: translateY(-2px) !important;
+}
+
+.research-input-wrapper {
+    border-radius: 18px !important;
+    border: 1px solid var(--chat-input-border) !important;
+    background: var(--chat-input-bg) !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.research-input-wrapper:focus-within {
+    border-color: rgba(124, 58, 237, 0.4) !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1) !important;
+}
+
+.research-send-btn {
+    background: var(--accent-gradient) !important;
+    border-radius: 12px !important;
+}
+
+/* ==================== THEME MODAL UPGRADE ==================== */
+.theme-option {
+    border-radius: 14px !important;
+    transition: var(--transition-smooth) !important;
+    border: 2px solid transparent !important;
+}
+
+.theme-option.active {
+    border-color: #7c3aed !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2) !important;
+}
+
+.theme-option:hover {
+    transform: scale(1.05) !important;
+}
+
+.theme-preview {
+    border-radius: 10px !important;
+}
+
+/* ==================== TODO PANEL ==================== */
+.todo-panel {
+    border-top: 1px solid rgba(124, 58, 237, 0.1) !important;
+    background: rgba(14, 14, 22, 0.95) !important;
+}
+
+/* ==================== RESIZER ==================== */
+.vertical-resizer {
+    width: 3px !important;
+    background: transparent !important;
+    transition: background 0.2s ease !important;
+    cursor: col-resize !important;
+}
+
+.vertical-resizer:hover {
+    background: rgba(124, 58, 237, 0.3) !important;
+}
+
+/* ==================== TOAST NOTIFICATIONS ==================== */
+.toast {
+    border-radius: 14px !important;
+    backdrop-filter: blur(12px) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ==================== FILE TREE ==================== */
+.file-tree {
+    background: transparent !important;
+}
+
+.project-list .project-item {
+    border-radius: 10px !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.project-list .project-item:hover {
+    background: rgba(124, 58, 237, 0.08) !important;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .activity-bar {
+        width: 44px !important;
+        min-width: 44px !important;
+    }
+    
+    .activity-icon {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    .message {
+        padding: 12px 14px !important;
+    }
+    
+    .message-avatar {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        font-size: 12px !important;
+    }
+    
+    .chat-deck {
+        border-radius: 16px !important;
+        padding: 6px 6px 6px 10px !important;
+    }
+    
+    .deck-btn.mode-btn {
+        display: none !important;
+    }
+    
+    .voice-overlay .voice-circle {
+        width: 90px;
+        height: 90px;
+        font-size: 32px;
+    }
+}
+
+/* ==================== GRADIENT TEXT UTILITY ==================== */
+.gradient-text {
+    background: var(--accent-gradient) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* ==================== LOGO REFERENCES ==================== */
+img[src="Iconxx.png"] {
+    content: url("images/logo.png");
+}

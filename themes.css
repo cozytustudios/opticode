@@ -1,0 +1,798 @@
+/* Opticode - Theme Styles */
+/* Made by Cozytustudios */
+
+/* ==================== DARK THEME (Default) ==================== */
+.theme-dark {
+    --bg-primary: #0f0f14;
+    --bg-secondary: #1a1a24;
+    --bg-tertiary: #252532;
+
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+    --text-muted: #606070;
+
+    --border-color: #2a2a3a;
+
+    --glass-bg: rgba(26, 26, 36, 0.9);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    --primary: #7c3aed;
+    --primary-light: #a78bfa;
+    --primary-dark: #5b21b6;
+    --secondary: #10b981;
+
+    --code-bg: #0f1116;
+    --code-border: #1f2633;
+    --code-grid: rgba(255, 255, 255, 0.03);
+    --code-text: #e9edf5;
+    --code-placeholder: #6b7280;
+    --gutter-bg: linear-gradient(180deg, #0b0c11, #0f1116);
+    --gutter-border: #1c1f27;
+}
+
+/* ==================== PINK THEME ==================== */
+.theme-pink {
+    --bg-primary: #1a0f18;
+    --bg-secondary: #251a23;
+    --bg-tertiary: #352530;
+
+    --text-primary: #fdf2f8;
+    --text-secondary: #f9a8d4;
+    --text-muted: #a55582;
+
+    --border-color: #4a2844;
+
+    --glass-bg: rgba(37, 26, 35, 0.95);
+    --glass-border: rgba(249, 168, 212, 0.2);
+
+    --primary: #ec4899;
+    --primary-light: #f472b6;
+    --primary-dark: #be185d;
+    --secondary: #a855f7;
+
+    --code-bg: #130a12;
+    --code-border: #2d1a28;
+    --code-grid: rgba(236, 72, 153, 0.04);
+    --code-text: #fdf2f8;
+    --code-placeholder: #9f6a8c;
+    --gutter-bg: linear-gradient(180deg, #0f080e, #130a12);
+    --gutter-border: #3d2038;
+}
+
+/* ==================== LIGHT THEME (Clean & Bright) ==================== */
+.theme-light {
+    color-scheme: light;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #f1f5f9;
+
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+
+    --border-color: #e2e8f0;
+
+    --glass-bg: rgba(255, 255, 255, 0.98);
+    --glass-border: rgba(203, 213, 225, 0.6);
+
+    --primary: #7c3aed;
+    --primary-light: #a78bfa;
+    --primary-dark: #6d28d9;
+    --secondary: #0ea5e9;
+
+    --code-bg: #f8fafc;
+    --code-border: #e2e8f0;
+    --code-grid: rgba(15, 23, 42, 0.02);
+    --code-text: #0f172a;
+    --code-placeholder: #64748b;
+    --gutter-bg: linear-gradient(180deg, #f1f5f9, #e2e8f0);
+    --gutter-border: #cbd5e1;
+
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+    --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.1);
+}
+
+/* Light theme - Top bar controls */
+.theme-light .view-toggle {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+}
+
+.theme-light .layout-toggle {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+}
+
+.theme-light .layout-btn.active {
+    background: linear-gradient(135deg, #7c3aed, #0ea5e9);
+    color: #ffffff;
+    box-shadow: 0 8px 16px rgba(124, 58, 237, 0.18);
+}
+
+.theme-light .model-selector {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+}
+
+.theme-light .model-tier {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    color: #475569;
+}
+
+.theme-light .model-tier.balanced {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #334155;
+}
+
+/* Light theme - Message styling */
+.theme-light .message.user .message-content {
+    background: linear-gradient(135deg, #7c3aed, #0ea5e9);
+    color: white;
+}
+
+.theme-light .message.assistant .message-content {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+}
+
+/* Light theme - Chat panel */
+.theme-light .chat-panel {
+    background: #ffffff;
+    border-right: 1px solid #e2e8f0;
+}
+
+.theme-light .chat-messages {
+    background: linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+/* Light theme - Editor & Workspace */
+.theme-light .dev-panel,
+.theme-light .editor-panel {
+    background: #ffffff;
+}
+
+.theme-light .workspace-tabs {
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.theme-light .workspace-tab {
+    color: #475569;
+}
+
+.theme-light .workspace-tab.active {
+    background: #7c3aed;
+    color: #ffffff;
+}
+
+.theme-light .workspace-tab:hover:not(.active) {
+    background: #f1f5f9;
+}
+
+/* Light theme - Editor container */
+.theme-light .editor-container {
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.theme-light .editor-body {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.theme-light #code-editor {
+    background: #ffffff;
+    color: #0f172a;
+    background-image: none;
+}
+
+.theme-light .editor-gutter {
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+    color: #94a3b8;
+}
+
+/* Light theme - Editor tabs */
+.theme-light .editor-tabs {
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.theme-light .editor-tab {
+    color: #475569;
+}
+
+.theme-light .editor-tab.active {
+    background: #ffffff;
+    color: #0f172a;
+    border-bottom-color: #7c3aed;
+}
+
+/* Light theme - Buttons */
+.theme-light .btn {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+}
+
+.theme-light .btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.theme-light .btn-primary {
+    background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+    border: none;
+    color: #ffffff;
+}
+
+.theme-light .btn-primary:hover {
+    background: linear-gradient(135deg, #6d28d9, #7c3aed);
+}
+
+/* Light theme - Code editor scrollbars */
+.theme-light #code-editor::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.theme-light #code-editor::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+}
+
+.theme-light #code-editor::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Light theme - Input deck */
+.theme-light .chat-deck {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 -2px 12px rgba(15, 23, 42, 0.06);
+}
+
+.theme-light .chat-deck:focus-within {
+    border-color: #7c3aed;
+    box-shadow: 0 -2px 12px rgba(124, 58, 237, 0.1);
+}
+
+.theme-light .chat-deck .deck-btn {
+    color: #475569;
+}
+
+.theme-light .chat-deck .deck-btn:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.theme-light .chat-deck .deck-btn.mode-btn {
+    background: rgba(124, 58, 237, 0.1);
+    border-color: rgba(124, 58, 237, 0.2);
+    color: #0f172a;
+}
+
+.theme-light .chat-deck .deck-btn.mode-btn:hover {
+    background: rgba(124, 58, 237, 0.15);
+}
+
+.theme-light .chat-deck .deck-btn.send-btn {
+    color: #0f172a;
+}
+
+.theme-light #chat-input {
+    color: #0f172a;
+}
+
+.theme-light #chat-input::placeholder {
+    color: #94a3b8;
+}
+
+/* Light theme - Sidebar */
+.theme-light .sidebar {
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+}
+
+.theme-light .project-item {
+    color: #475569;
+}
+
+.theme-light .project-item:hover {
+    background: #f1f5f9;
+}
+
+.theme-light .project-item.active {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(14, 165, 233, 0.1));
+    border-left: 3px solid #7c3aed;
+}
+
+/* Light theme - Icon buttons */
+.theme-light .icon-btn {
+    color: #64748b;
+}
+
+.theme-light .icon-btn:hover {
+    background: #f1f5f9;
+    color: #7c3aed;
+}
+
+/* Light theme - Modals */
+.theme-light .modal-content {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.15);
+}
+
+/* Light theme - Preview */
+.theme-light .preview-container,
+.theme-light .preview-pane {
+    background: #ffffff;
+}
+
+/* Light theme - Chatbot polish */
+body.theme-light::before,
+body.theme-light::after {
+    opacity: 0.12;
+    filter: blur(94px);
+}
+
+body.theme-light::before {
+    background: color-mix(in srgb, var(--primary) 72%, #ffffff 28%);
+}
+
+body.theme-light::after {
+    background: color-mix(in srgb, var(--secondary) 72%, #ffffff 28%);
+}
+
+.theme-light .chat-history-panel {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
+}
+
+.theme-light .chat-history-search {
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.theme-light .chat-history-item {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+}
+
+.theme-light .chat-history-item:hover {
+    background: #eef2ff;
+    border-color: #cbd5e1;
+}
+
+.theme-light .chat-history-item.active {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(14, 165, 233, 0.08));
+    border-color: rgba(124, 58, 237, 0.28);
+}
+
+.theme-light .chat-header {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.theme-light .message-content {
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+}
+
+.theme-light .message.assistant .message-avatar {
+    background: linear-gradient(135deg, #7c3aed, #0ea5e9);
+    color: #ffffff;
+}
+
+.theme-light .message.user .message-avatar {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.theme-light .chat-deck-container {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.92));
+    border-top: 1px solid #e2e8f0;
+}
+
+.theme-light .chat-deck {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 14px 28px rgba(15, 23, 42, 0.1);
+}
+
+.theme-light .chat-deck::before {
+    opacity: 0.2;
+}
+
+.theme-light .chat-deck .deck-btn.send-btn {
+    color: #ffffff;
+}
+
+/* ==================== MIDNIGHT THEME (Neon) ==================== */
+.theme-midnight {
+    --bg-primary: #050510;
+    /* Almost black */
+    --bg-secondary: #0a0a1a;
+    --bg-tertiary: #101025;
+
+    --text-primary: #e0e0ff;
+    --text-secondary: #a0a0e0;
+    --text-muted: #606090;
+
+    --border-color: #2a2a60;
+
+    --glass-bg: rgba(10, 10, 26, 0.9);
+    --glass-border: rgba(100, 100, 255, 0.3);
+
+    --primary: #00ff9d;
+    /* Neon Green */
+    --primary-light: #50ffc5;
+    --primary-dark: #00cc7a;
+    --secondary: #d600ff;
+    /* Neon Purple */
+
+    --code-bg: #0b0c16;
+    --code-border: #202540;
+    --code-grid: rgba(255, 255, 255, 0.04);
+    --code-text: #e5e7ff;
+    --code-placeholder: #9ca3af;
+    --gutter-bg: linear-gradient(180deg, #060814, #0b0c16);
+    --gutter-border: #242c46;
+}
+
+/* ==================== FOREST THEME ==================== */
+.theme-forest {
+    --bg-primary: #0d1a0d;
+    --bg-secondary: #152415;
+    --bg-tertiary: #1f3320;
+
+    --text-primary: #e0ffe0;
+    --text-secondary: #90c090;
+    --text-muted: #507050;
+
+    --border-color: #2a4a2a;
+
+    --glass-bg: rgba(21, 36, 21, 0.95);
+    --glass-border: rgba(100, 200, 100, 0.2);
+
+    --primary: #22c55e;
+    --primary-light: #4ade80;
+    --primary-dark: #16a34a;
+    --secondary: #84cc16;
+
+    --code-bg: #0f1710;
+    --code-border: #1d2a1c;
+    --code-grid: rgba(255, 255, 255, 0.025);
+    --code-text: #e3f4e3;
+    --code-placeholder: #8aa38a;
+    --gutter-bg: linear-gradient(180deg, #0b120c, #0f1710);
+    --gutter-border: #233223;
+}
+
+/* ==================== OCEAN THEME ==================== */
+.theme-ocean {
+    --bg-primary: #0a192f;
+    --bg-secondary: #112240;
+    --bg-tertiary: #1a3050;
+
+    --text-primary: #ccd6f6;
+    --text-secondary: #8892b0;
+    --text-muted: #495670;
+
+    --border-color: #233554;
+
+    --glass-bg: rgba(17, 34, 64, 0.95);
+    --glass-border: rgba(100, 150, 200, 0.2);
+
+    --primary: #0ea5e9;
+    --primary-light: #38bdf8;
+    --primary-dark: #0284c7;
+    --secondary: #06b6d4;
+
+    --code-bg: #0c1b2f;
+    --code-border: #20314a;
+    --code-grid: rgba(255, 255, 255, 0.03);
+    --code-text: #d8e7ff;
+    --code-placeholder: #8ba0c5;
+    --gutter-bg: linear-gradient(180deg, #091223, #0c1b2f);
+    --gutter-border: #253754;
+}
+
+/* ==================== SUNSET THEME ==================== */
+.theme-sunset {
+    --bg-primary: #1a0f1a;
+    --bg-secondary: #2a1525;
+    --bg-tertiary: #3a2030;
+
+    --text-primary: #ffe0f0;
+    --text-secondary: #c090a0;
+    --text-muted: #805060;
+
+    --border-color: #4a2540;
+
+    --glass-bg: rgba(42, 21, 37, 0.95);
+    --glass-border: rgba(200, 100, 150, 0.2);
+
+    --primary: #f43f5e;
+    --primary-light: #fb7185;
+    --primary-dark: #e11d48;
+    --secondary: #f97316;
+
+    --code-bg: #1d121d;
+    --code-border: #2e1d2d;
+    --code-grid: rgba(255, 255, 255, 0.02);
+    --code-text: #ffe4ec;
+    --code-placeholder: #c08fa4;
+    --gutter-bg: linear-gradient(180deg, #130c17, #1d121d);
+    --gutter-border: #3a2637;
+}
+
+/* ==================== COZY THEME ==================== */
+.theme-cozy {
+    --bg-primary: #2a221c;
+    /* Warmer brown */
+    --bg-secondary: #372c24;
+    --bg-tertiary: #4a3a2f;
+
+    --text-primary: #f7e9d7;
+    --text-secondary: #d7c0ab;
+    --text-muted: #aa927c;
+
+    --border-color: #614d3e;
+
+    --glass-bg: rgba(42, 34, 28, 0.95);
+    --glass-border: rgba(255, 214, 170, 0.16);
+
+    --primary: #d97745;
+    /* Amber */
+    --primary-light: #f1a86f;
+    --primary-dark: #b4532f;
+    --secondary: #eab676;
+    /* Burnt Orange */
+
+    --code-bg: #241c16;
+    --code-border: #3a2d22;
+    --code-grid: rgba(255, 255, 255, 0.02);
+    --code-text: #f5e8d8;
+    --code-placeholder: #c2ad96;
+    --gutter-bg: linear-gradient(180deg, #1b140f, #241c16);
+    --gutter-border: #4a382a;
+}
+
+/* ==================== RED THEME ==================== */
+.theme-red {
+    --bg-primary: #1a0505;
+    --bg-secondary: #2b0a0a;
+    --bg-tertiary: #3c1010;
+
+    --text-primary: #ffe0e0;
+    --text-secondary: #ffa0a0;
+    --text-muted: #c06060;
+
+    --border-color: #501515;
+
+    --glass-bg: rgba(26, 5, 5, 0.95);
+    --glass-border: rgba(255, 50, 50, 0.2);
+
+    --primary: #dc2626;
+    /* Red 600 */
+    --primary-light: #ef4444;
+    /* Red 500 */
+    --primary-dark: #b91c1c;
+    /* Red 700 */
+    --secondary: #ea580c;
+    /* Orange 600 */
+
+    --code-bg: #1f0a0a;
+    --code-border: #2f1414;
+    --code-grid: rgba(255, 255, 255, 0.02);
+    --code-text: #ffe2e2;
+    --code-placeholder: #fca5a5;
+    --gutter-bg: linear-gradient(180deg, #150606, #1f0a0a);
+    --gutter-border: #3c1616;
+}
+
+/* ==================== COZY GREEN THEME ==================== */
+.theme-cozy-green {
+    --bg-primary: #1a1f1a;
+    /* Dark mossy green */
+    --bg-secondary: #242b24;
+    --bg-tertiary: #2e382e;
+
+    --text-primary: #e0e8e0;
+    --text-secondary: #a0b0a0;
+    --text-muted: #607060;
+
+    --border-color: #354535;
+
+    --glass-bg: rgba(26, 31, 26, 0.95);
+    --glass-border: rgba(100, 150, 100, 0.2);
+
+    --primary: #65a30d;
+    /* Lime 600 (warm/earthy) */
+    --primary-light: #84cc16;
+    /* Lime 500 */
+    --primary-dark: #4d7c0f;
+    /* Lime 700 */
+    --secondary: #10b981;
+    /* Emerald 500 */
+
+    --code-bg: #111611;
+    --code-border: #223022;
+    --code-grid: rgba(255, 255, 255, 0.02);
+    --code-text: #e5f5e5;
+    --code-placeholder: #91a78f;
+    --gutter-bg: linear-gradient(180deg, #0d120d, #111611);
+    --gutter-border: #2f3c2f;
+}
+
+/* ==================== COZY SEPIA THEME ==================== */
+.theme-cozy-sepia {
+    --bg-primary: #2d241e;
+    --bg-secondary: #3a2e26;
+    --bg-tertiary: #4d3d32;
+
+    --text-primary: #f2e4d8;
+    --text-secondary: #c9b3a3;
+    --text-muted: #8c7a6b;
+
+    --border-color: #5c4a3d;
+
+    --glass-bg: rgba(58, 46, 38, 0.95);
+    --glass-border: rgba(242, 228, 216, 0.1);
+
+    --primary: #c2410c;
+    /* Orange 700 */
+    --primary-light: #ea580c;
+    --primary-dark: #9a3412;
+    --secondary: #a16207;
+    /* Yellow 700 */
+
+    --code-bg: #241c16;
+    --code-border: #3a2d22;
+    --code-grid: rgba(255, 255, 255, 0.02);
+    --code-text: #f8eadd;
+    --code-placeholder: #cbb59f;
+    --gutter-bg: linear-gradient(180deg, #1b140f, #241c16);
+    --gutter-border: #4a382a;
+}
+
+/* ==================== COZY NIGHT THEME ==================== */
+.theme-cozy-night {
+    --bg-primary: #12141d;
+    --bg-secondary: #1a1d29;
+    --bg-tertiary: #24283b;
+
+    --text-primary: #c0caf5;
+    --text-secondary: #9aa5ce;
+    --text-muted: #565f89;
+
+    --border-color: #2f354b;
+
+    --glass-bg: rgba(26, 29, 41, 0.95);
+    --glass-border: rgba(192, 202, 245, 0.1);
+
+    --primary: #7aa2f7;
+    /* Soft Blue */
+    --primary-light: #bb9af7;
+    --primary-dark: #3d59a1;
+    --secondary: #2ac3de;
+
+    --code-bg: #0f111b;
+    --code-border: #20273a;
+    --code-grid: rgba(255, 255, 255, 0.03);
+    --code-text: #dbe2ff;
+    --code-placeholder: #9aa5ce;
+    --gutter-bg: linear-gradient(180deg, #0a0c14, #0f111b);
+    --gutter-border: #2c3350;
+}
+
+.theme-red .code-keyword {
+    color: #fca5a5;
+}
+
+.theme-red .code-string {
+    color: #fcd34d;
+}
+
+.theme-red .code-number {
+    color: #fdba74;
+}
+
+.theme-red .code-comment {
+    color: #991b1b;
+}
+
+.theme-red .code-function {
+    color: #fda4af;
+}
+
+.theme-red .code-tag {
+    color: #f87171;
+}
+
+.theme-red .code-attribute {
+    color: #fca5a5;
+}
+
+.theme-cozy-green .code-keyword {
+    color: #bef264;
+}
+
+.theme-cozy-green .code-string {
+    color: #86efac;
+}
+
+.theme-cozy-green .code-number {
+    color: #fde047;
+}
+
+.theme-cozy-green .code-comment {
+    color: #3f6212;
+}
+
+.theme-cozy-green .code-function {
+    color: #6ee7b7;
+}
+
+.theme-cozy-green .code-tag {
+    color: #a3e635;
+}
+
+.theme-cozy-green .code-attribute {
+    color: #d9f99d;
+}
+
+/* ==================== PLAN BADGE COLORS ==================== */
+.plan-free {
+    color: var(--text-muted);
+}
+
+.plan-neo {
+    color: #10b981;
+}
+
+.plan-plus {
+    color: var(--primary);
+}
+
+.plan-ultra {
+    color: #f59e0b;
+}
+
+/* ==================== ACCENT GRADIENTS ==================== */
+.gradient-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.gradient-sunset {
+    background: linear-gradient(135deg, #f43f5e, #f97316);
+}
+
+.gradient-ocean {
+    background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+}
+
+.gradient-forest {
+    background: linear-gradient(135deg, #22c55e, #84cc16);
+}
+
+.gradient-midnight {
+    background: linear-gradient(135deg, #00ff9d, #d600ff);
+}
+
+.gradient-cozy {
+    background: linear-gradient(135deg, #d97706, #ca8a04);
+}
+
+.gradient-red {
+    background: linear-gradient(135deg, #dc2626, #ea580c);
+}
+
+.gradient-cozy-green {
+    background: linear-gradient(135deg, #65a30d, #10b981);
+}

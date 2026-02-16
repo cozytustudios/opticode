@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opticode - Professional Vibe Coding App by Cozytustudios</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="enhanced-ui.css">
+    <link rel="stylesheet" href="ui-upgrade.css">
+    <link rel="stylesheet" href="opticode-v3.css">
+
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#7c3aed">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+
+<body class="theme-cozy">
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <div class="logo-container">
+                <div class="logo-icon pulse">
+                    <img src="icon.png" alt="Opticode Logo">
+                </div>
+                <h1 class="logo-text gradient-text">Opticode</h1>
+            </div>
+            <p class="tagline">Professional Vibe Coding Platform</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="made-by">Made by Cozytustudios</p>
+        </div>
+    </div>
+
+    <!-- Auth Screen -->
+    <div id="auth-screen" class="auth-screen hidden">
+        <div class="auth-container glass-panel">
+            <div class="auth-header">
+                <div class="logo-small">
+                    <img src="icon.png" alt="Opticode Logo">
+                    <span>Opticode</span>
+                </div>
+                <p class="auth-subtitle" data-i18n="auth_subtitle">Sign in to start vibe coding</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login" data-i18n="login">Login</button>
+                <button class="auth-tab" data-tab="register" data-i18n="register">Register</button>
+            </div>
+
+            <form id="login-form" class="auth-form">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="login-email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-glow">
+                    <span data-i18n="login">Login</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <form id="register-form" class="auth-form hidden">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="register-name" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="register-email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="register-password" placeholder="Password" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="register-confirm" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-glow">
+                    <span data-i18n="create_account">Create Account</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <p class="auth-footer">Made specially for Cozytustudios Team</p>
+        </div>
+    </div>
+
+    <!-- Subscription Screen -->
+    <div id="subscription-screen" class="subscription-screen hidden">
+        <div class="subscription-container">
+            <div class="subscription-header">
+                <div class="header-with-close">
+                    <h2 data-i18n="plans">Plans</h2>
+                    <button class="icon-btn close-plans" id="close-plans-btn" title="Close Plans">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p data-i18n="plans_desc">Choose a plan that's right for you. Pause or cancel anytime.</p>
+            </div>
+
+            <div class="plans-grid">
+                <!-- Free Plan -->
+                <div class="plan-card" data-plan="FREE">
+                    <div class="plan-header">
+                        <h3>Free</h3>
+                        <p class="plan-desc">No minimum commitment</p>
+                    </div>
+                    <div class="plan-price">
+                        <span class="price">0</span>
+                        <span class="currency">/month</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> 5 requests/day</li>
+                        <li><i class="fas fa-check-circle"></i> Optichain Pro model</li>
+                        <li><i class="fas fa-check-circle"></i> Basic themes</li>
+                        <li><i class="fas fa-check-circle"></i> Free access (2 days)</li>
+                    </ul>
+                    <button class="btn btn-block btn-secondary select-plan">Get Started</button>
+                </div>
+
+                <!-- Neo Plan -->
+                <div class="plan-card" data-plan="NEO">
+                    <div class="plan-tag">Weekly</div>
+                    <div class="plan-header">
+                        <h3>Neo</h3>
+                        <p class="plan-desc">Perfect for short sprints</p>
+                    </div>
+                    <div class="plan-price">
+                        <span class="price">200</span>
+                        <span class="currency">/week</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> 1,000 monthly credits</li>
+                        <li><i class="fas fa-check-circle"></i> All AI models</li>
+                        <li><i class="fas fa-check-circle"></i> All themes</li>
+                        <li><i class="fas fa-check-circle"></i> Voice input</li>
+                    </ul>
+                    <button class="btn btn-block btn-primary select-plan">Redeem Coupon</button>
+                </div>
+
+                <!-- Plus Plan -->
+                <div class="plan-card population" data-plan="PLUS">
+                    <div class="plan-tag popular">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Plus</h3>
+                        <p class="plan-desc">Most popular choice</p>
+                    </div>
+                    <div class="plan-price">
+                        <span class="price">500</span>
+                        <span class="currency">/month</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> 5,000 monthly credits</li>
+                        <li><i class="fas fa-check-circle"></i> Priority support</li>
+                        <li><i class="fas fa-check-circle"></i> Export projects</li>
+                        <li><i class="fas fa-check-circle"></i> Chat & Research mode</li>
+                    </ul>
+                    <button class="btn btn-block btn-primary select-plan">Redeem Coupon</button>
+                </div>
+
+                <!-- Ultra Plan -->
+                <div class="plan-card premium" data-plan="ULTRA">
+                    <div class="plan-tag premium">Power User</div>
+                    <div class="plan-header">
+                        <h3>Ultra</h3>
+                        <p class="plan-desc">For power users</p>
+                    </div>
+                    <div class="plan-price">
+                        <span class="price">1,500</span>
+                        <span class="currency">/month</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> 20,000 monthly credits</li>
+                        <li><i class="fas fa-check-circle"></i> Optichain 600B access</li>
+                        <li><i class="fas fa-check-circle"></i> VIP Support</li>
+                        <li><i class="fas fa-check-circle"></i> Early access features</li>
+                    </ul>
+                    <button class="btn btn-block btn-premium select-plan">Redeem Coupon</button>
+                </div>
+            </div>
+
+            <!-- Agentic Ultra Banner -->
+            <div class="ultra-agent-banner">
+                <div class="banner-content">
+                    <h3>Agentic Ultra</h3>
+                    <p>Maximum power with Optichain 600B</p>
+                    <div class="banner-features">
+                        <span><i class="fas fa-check-circle"></i> 70,000 monthly credits</span>
+                        <span><i class="fas fa-check-circle"></i> 100% Access</span>
+                    </div>
+                </div>
+                <div class="banner-price">
+                    <span class="price">7,500</span>
+                    <span class="currency">BDT/month</span>
+                </div>
+                <div class="banner-actions">
+                    <button class="btn btn-white select-plan" data-plan="ULTRA_AGENT">Redeem Coupon</button>
+                </div>
+            </div>
+
+            <!-- Coupon Modal -->
+            <div id="coupon-modal" class="modal hidden">
+                <div class="modal-content glass-panel">
+                    <h3>Redeem Coupon</h3>
+                    <p id="coupon-plan-name">Activate your plan</p>
+                    <div class="input-group">
+                        <i class="fas fa-ticket-alt"></i>
+                        <input type="text" id="coupon-input" placeholder="Enter coupon code">
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-secondary" id="cancel-coupon">Cancel</button>
+                        <button class="btn btn-primary" id="apply-coupon">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="main-app" class="main-app hidden">
+        <!-- Activity Bar (Cursor-style left sidebar) -->
+        <aside class="activity-bar" id="activity-bar">
+            <div class="activity-bar-top">
+                <button class="activity-icon active" data-panel="code" title="Code Editor">
+                    <i class="fas fa-code"></i>
+                </button>
+                <button class="activity-icon" data-panel="chat" title="AI Chat">
+                    <i class="fas fa-robot"></i>
+                </button>
+                <button class="activity-icon" data-panel="chat-research" title="Chat & Research">
+                    <i class="fas fa-magnifying-glass-chart"></i>
+                </button>
+                <button class="activity-icon" data-panel="files" title="File Explorer">
+                    <i class="fas fa-folder-tree"></i>
+                </button>
+                <button class="activity-icon" data-panel="todo" title="Todo List">
+                    <i class="fas fa-list-check"></i>
+                </button>
+            </div>
+            <div class="activity-bar-bottom">
+                <button class="activity-icon" id="lang-toggle-btn" title="Language / ভাষা">
+                    <i class="fas fa-language"></i>
+                </button>
+                <button class="activity-icon" id="settings-btn" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="breadcrumb" id="breadcrumb">
+                    <span data-i18n="welcome_msg">Welcome to Opticode</span>
+                    <span class="session-timer" id="session-timer">00:00:00</span>
+                    <span class="task-time" id="task-time">~ -- mins</span>
+                </div>
+                <div class="top-actions">
+                    <button class="icon-btn" id="history-btn" title="Chat History">
+                        <i class="fas fa-clock-rotate-left"></i>
+                    </button>
+                    <button class="icon-btn" id="toggle-code-btn" title="Hide/Show Code">
+                        <i class="fas fa-code"></i>
+                    </button>
+                    <button class="icon-btn" id="toggle-preview-btn" title="Hide/Show Preview">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="icon-btn" id="theme-btn" title="Change Theme">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div class="view-toggle" id="view-toggle" role="group" aria-label="Code or Preview">
+                        <button class="view-btn active" data-view="code"><i class="fas fa-code"></i> Code</button>
+                        <button class="view-btn" data-view="preview"><i class="fas fa-eye"></i> Preview</button>
+                    </div>
+                    <button class="btn btn-sm btn-primary" id="buy-premium-btn" title="Buy Premium">
+                        <i class="fas fa-crown"></i> Upgrade
+                    </button>
+                    <button class="icon-btn" id="logout-btn" title="Logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Workspace -->
+            <div class="workspace desktop-layout" id="workspace">
+                <!-- Welcome Panel (shown initially) -->
+                <div class="welcome-panel" id="welcome-panel">
+                    <div class="welcome-content">
+                        <div class="welcome-logo">
+                            <img src="icon.png" alt="Opticode Logo">
+                        </div>
+                        <h1>Welcome to <span class="gradient-text">Opticode</span></h1>
+                        <p class="welcome-tagline">Professional AI-Powered Coding Platform</p>
+                        <p class="made-by-small">Made in Bangladesh • Cozytustudios • Founder: Sajid Hossain</p>
+                        <div class="quick-actions">
+                            <button class="action-card" id="start-coding-btn">
+                                <i class="fas fa-rocket"></i>
+                                <span data-i18n="start_coding">Start Coding</span>
+                            </button>
+                            <button class="action-card" id="import-project-btn">
+                                <i class="fas fa-file-import"></i>
+                                <span data-i18n="import_project">Import Project</span>
+                            </button>
+                            <button class="action-card" id="open-research-btn">
+                                <i class="fas fa-magnifying-glass-chart"></i>
+                                <span data-i18n="chat_research">Chat & Research</span>
+                            </button>
+                            <button class="action-card" id="view-docs-btn">
+                                <i class="fas fa-book"></i>
+                                <span data-i18n="documentation">Documentation</span>
+                            </button>
+                        </div>
+                        <p class="made-by-small">Made specially for Cozytustudios Team</p>
+                    </div>
+                </div>
+
+                <!-- Coding Workspace (hidden initially) -->
+                <div class="coding-workspace hidden" id="coding-workspace">
+                    <!-- AI Chat Panel -->
+                    <section class="chat-panel chat-ui-v2" id="chat-panel">
+                        <div class="chat-header">
+                            <div class="chat-header-left">
+                                <div class="chat-context-pill" aria-hidden="true">
+                                    <span class="pill-dot"></span>
+                                    <span data-i18n="assistant">Assistant</span>
+                                </div>
+                                <div class="chat-controls">
+                                    <div class="model-selector">
+                                        <span class="model-label" data-i18n="model">Model</span>
+                                        <select id="model-select">
+                                            <option value="OPTICHAIN_THINKING_15" selected>Optichain Thinking 1.5
+                                            </option>
+                                            <option value="OPTICHAIN_PRO">Optichain Pro</option>
+                                            <option value="OPTICHAIN_600B">Optichain 600B (100 credits)</option>
+                                            <option value="EXAKIO_SONE">Exakio Sone (Research)</option>
+                                        </select>
+                                    </div>
+                                    <span class="model-tier" id="model-tier-pill">Deep Reasoning</span>
+                                    <span class="ai-status idle" id="ai-status">Idle</span>
+                                </div>
+                            </div>
+                            <div class="chat-header-actions">
+                                <button class="icon-btn" id="clear-chat-btn" title="Clear chat">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message assistant">
+                                <div class="message-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-meta">
+                                        <span class="message-role">Optichain</span>
+                                        <span class="message-time">Now</span>
+                                    </div>
+                                    <div class="message-text">
+                                        <p data-i18n="ai_welcome">Hello! I'm Optichain, your AI coding assistant.
+                                            Describe what you want to build and I'll help you create it!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Todo Panel (in chat) -->
+                        <div class="todo-panel hidden" id="todo-panel">
+                            <div class="todo-header">
+                                <span><i class="fas fa-list-check"></i> <span data-i18n="task_list">Task
+                                        List</span></span>
+                                <button class="icon-btn" id="close-todo-panel" title="Close"><i
+                                        class="fas fa-times"></i></button>
+                            </div>
+                            <div class="todo-items" id="todo-items">
+                                <!-- Dynamic todo items -->
+                            </div>
+                        </div>
+
+                        <!-- Floating Chat Input Deck -->
+                        <div class="chat-deck-container">
+                            <!-- Mode Switcher: Chatbot vs Code -->
+                            <div class="chat-mode-switcher" id="chat-mode-switcher">
+                                <button class="chat-mode-btn" data-chatmode="chatbot" id="chatmode-chatbot">
+                                    <i class="fas fa-comments"></i> Chatbot
+                                </button>
+                                <button class="chat-mode-btn active" data-chatmode="code" id="chatmode-code">
+                                    <i class="fas fa-code"></i> Code
+                                </button>
+                            </div>
+
+                            <!-- Extra Thinking Toggle (chatbot only) -->
+                            <div class="extra-thinking-toggle hidden" id="extra-thinking-toggle">
+                                <div class="extra-thinking-check" id="extra-thinking-check">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <i class="fas fa-brain toggle-icon"></i>
+                                <span class="toggle-label">Extra Thinking</span>
+                                <span class="toggle-cost">100 credits</span>
+                            </div>
+
+                            <div class="chat-deck-meta">
+                                <div class="thinking-selector">
+                                    <label for="thinking-select" data-i18n="thinking">Thinking</label>
+                                    <select id="thinking-select">
+                                        <option value="low">Low • 1 credit</option>
+                                        <option value="mid" selected>Mid • 3 credits</option>
+                                        <option value="high">High • 5 credits</option>
+                                        <option value="extra-high">Extra High • 50 credits</option>
+                                    </select>
+                                </div>
+                                <span class="credit-pill" id="thinking-credit-pill">Cost: 3 credits</span>
+                                <button class="deck-pill" id="preview-quick-btn" title="Show or hide preview panel">
+                                    <i class="fas fa-eye"></i> Preview
+                                </button>
+                            </div>
+
+                            <div class="chat-deck">
+                                <button class="deck-btn" id="attach-file-btn" title="Attach">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                                <input type="file" id="image-input" class="hidden" accept="image/*">
+
+                                <button class="deck-btn mode-btn" id="mode-toggle-btn" title="AI Mode">
+                                    <i class="fas fa-wand-magic-sparkles"></i> Plan + Build
+                                </button>
+
+                                <div class="deck-input-wrapper">
+                                    <textarea id="chat-input" placeholder="Type a message..." rows="1"></textarea>
+                                </div>
+
+                                <button class="deck-btn" id="voice-input-btn" title="Voice">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+
+                                <button class="deck-btn send-btn" id="send-btn">
+                                    <i class="fas fa-arrow-up"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="resizer vertical-resizer" id="workspace-resizer"></div>
+
+                    <!-- Developer & Preview Workspace -->
+                    <section class="dev-panel" id="dev-panel">
+                        <div class="workspace-tabs" id="workspace-tabs">
+                            <button class="workspace-tab" data-view="preview">
+                                <i class="fas fa-eye"></i>
+                                <span>Preview</span>
+                            </button>
+                            <button class="workspace-tab active" data-view="code">
+                                <i class="fas fa-code"></i>
+                                <span>Code</span>
+                            </button>
+                            <button class="workspace-tab" data-view="files">
+                                <i class="fas fa-folder-tree"></i>
+                                <span>Files</span>
+                            </button>
+                            <div class="workspace-tab-spacer"></div>
+                            <div class="workspace-tab-actions">
+                                <button class="icon-btn" id="refresh-preview-btn" title="Refresh Preview">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button class="icon-btn" id="new-window-btn" title="Open in New Window">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="workspace-stage">
+                            <div class="tab-pane preview-pane hidden" id="preview-panel">
+                                <div class="preview-canvas">
+                                    <iframe id="preview-frame" sandbox="allow-scripts allow-same-origin"></iframe>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane code-pane" id="editor-panel">
+                                <div class="editor-tabs" id="editor-tabs">
+                                    <!-- Tabs will be rendered here -->
+                                </div>
+                                <div class="editor-container" id="editor-container">
+                                    <div class="editor-header">
+                                        <div class="editor-actions">
+                                            <button class="btn btn-sm" id="customize-selection-btn">
+                                                <i class="fas fa-wand-magic-sparkles"></i> Customize Selection
+                                            </button>
+                                            <button class="btn btn-sm" id="download-code-btn">
+                                                <i class="fas fa-download"></i> Download
+                                            </button>
+                                        </div>
+                                        <div class="editor-status" id="editor-status">
+                                            <span id="editor-line-info">Lines: 1</span>
+                                            <span id="editor-selection-info">Selection: 0 chars</span>
+                                        </div>
+                                    </div>
+                                    <div class="editor-body">
+                                        <div class="editor-gutter" id="editor-gutter"></div>
+                                        <textarea id="code-editor"
+                                            placeholder="// Your code will appear here..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane files-pane hidden" id="files-pane">
+                                <div class="files-pane-grid">
+                                    <div class="pane-block">
+                                        <div class="section-header">
+                                            <span><i class="fas fa-folder"></i> Explorer</span>
+                                        </div>
+                                        <div class="file-tree" id="file-tree"></div>
+                                    </div>
+                                    <div class="pane-block">
+                                        <div class="section-header">
+                                            <span><i class="fas fa-project-diagram"></i> Projects</span>
+                                            <div class="section-actions">
+                                                <button class="icon-btn" id="new-project-btn" title="New Project">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                                <button class="icon-btn danger" id="delete-project-btn"
+                                                    title="Delete Current Project">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="project-list" id="project-list"></div>
+                                        <div class="files-pane-footer">
+                                            <div class="user-info" id="user-info">
+                                                <div class="user-avatar">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
+                                                <div class="user-details">
+                                                    <span class="user-name" id="user-name">User</span>
+                                                    <span class="user-plan" id="user-plan">Free Plan</span>
+                                                </div>
+                                            </div>
+                                            <div class="usage-info">
+                                                <div class="usage-bar">
+                                                    <div class="usage-progress" id="usage-progress"></div>
+                                                </div>
+                                                <span class="usage-text" id="usage-text">Free • 5 credits/day — 0/5
+                                                    used</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chat & Research Window -->
+    <div id="research-window" class="research-window hidden">
+        <div class="research-container">
+            <div class="research-header">
+                <div class="research-header-left">
+                    <img src="icon.png" alt="Logo" class="research-logo">
+                    <h3 data-i18n="chat_research">Chat & Research</h3>
+                </div>
+                <div class="research-header-actions">
+                    <div class="research-mode-toggle">
+                        <button class="research-mode-btn active" data-rmode="chat">
+                            <i class="fas fa-comments"></i> Chat
+                        </button>
+                        <button class="research-mode-btn" data-rmode="deep-research">
+                            <i class="fas fa-microscope"></i> Deep Research
+                        </button>
+                        <button class="research-mode-btn" data-rmode="web-search">
+                            <i class="fas fa-globe"></i> Web Search
+                        </button>
+                    </div>
+                    <span class="research-cost-pill">50 credits per request</span>
+                    <button class="icon-btn" id="close-research-btn" title="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="research-messages" id="research-messages">
+                <div class="research-welcome">
+                    <div class="research-welcome-icon">
+                        <i class="fas fa-magnifying-glass-chart"></i>
+                    </div>
+                    <h2 data-i18n="research_welcome">What would you like to explore?</h2>
+                    <p data-i18n="research_desc">Use Chat, Deep Research, or Web Search mode to get comprehensive
+                        answers.</p>
+                    <div class="research-suggestions">
+                        <button class="research-chip" data-prompt="Explain the latest trends in web development 2025">
+                            <i class="fas fa-trending-up"></i> Web Dev Trends
+                        </button>
+                        <button class="research-chip" data-prompt="Compare React, Vue, and Svelte for a new project">
+                            <i class="fas fa-code-compare"></i> Framework Comparison
+                        </button>
+                        <button class="research-chip" data-prompt="Best practices for building scalable REST APIs">
+                            <i class="fas fa-server"></i> API Best Practices
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="research-input-area">
+                <div class="research-input-wrapper">
+                    <textarea id="research-input" placeholder="Ask anything..." rows="1"></textarea>
+                    <button class="research-send-btn" id="research-send-btn">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content glass-panel large">
+            <div class="modal-header">
+                <h3><i class="fas fa-cog"></i> <span data-i18n="settings">Settings</span></h3>
+                <button class="icon-btn close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="settings-content">
+                <div class="settings-section">
+                    <h4 data-i18n="appearance">Appearance</h4>
+                    <div class="setting-item">
+                        <label data-i18n="theme">Theme</label>
+                        <select id="theme-select">
+                            <option value="dark">Dark</option>
+                            <option value="light">Light (Pastel)</option>
+                            <option value="midnight">Midnight (Neon)</option>
+                            <option value="forest">Forest</option>
+                            <option value="ocean">Ocean</option>
+                            <option value="sunset">Sunset</option>
+                            <option value="cozy">Cozy (Warm)</option>
+                            <option value="cozy-green">Cozy Green</option>
+                            <option value="cozy-sepia">Cozy Sepia</option>
+                            <option value="cozy-night">Cozy Night</option>
+                            <option value="red">Red</option>
+                            <option value="pink">Pink</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label data-i18n="ui_size">UI Size</label>
+                        <select id="ui-scale-select">
+                            <option value="small">Small</option>
+                            <option value="normal" selected>Normal</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label data-i18n="language">Language</label>
+                        <select id="language-select">
+                            <option value="en">English</option>
+                            <option value="bn">বাংলা (Bangla)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h4 data-i18n="onboarding">Onboarding</h4>
+                    <div class="setting-item">
+                        <label data-i18n="walkthrough">Need a quick walkthrough again?</label>
+                        <button class="btn btn-secondary" id="replay-tutorial-btn">
+                            <i class="fas fa-graduation-cap"></i> <span data-i18n="replay_tutorial">Replay
+                                Tutorial</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h4 data-i18n="sound_haptics">Sound & Haptics</h4>
+                    <div class="setting-item">
+                        <label data-i18n="sound_effects">Sound Effects</label>
+                        <label class="toggle">
+                            <input type="checkbox" id="sound-toggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label data-i18n="haptic_feedback">Haptic Feedback</label>
+                        <label class="toggle">
+                            <input type="checkbox" id="haptic-toggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h4 data-i18n="ai_settings">AI Settings</h4>
+                    <div class="setting-item">
+                        <label data-i18n="default_model">Default Model</label>
+                        <select id="default-model-select">
+                            <option value="OPTICHAIN_THINKING_15" selected>Optichain Thinking 1.5</option>
+                            <option value="OPTICHAIN_PRO">Optichain Pro</option>
+                            <option value="OPTICHAIN_600B">Optichain 600B (100 credits)</option>
+                            <option value="EXAKIO_SONE">Exakio Sone (Research)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label data-i18n="default_thinking">Default Thinking</label>
+                        <select id="default-thinking-select">
+                            <option value="low">Low (1 credit)</option>
+                            <option value="mid">Mid (3 credits)</option>
+                            <option value="high">High (5 credits)</option>
+                            <option value="extra-high">Extra High (50 credits)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>DeepSeek API URL</label>
+                        <input type="text" id="deepseek-url-input"
+                            placeholder="https://api.deepseek.com/v1/chat/completions" autocomplete="off">
+                    </div>
+                    <div class="setting-item">
+                        <label>DeepSeek API Key</label>
+                        <div class="setting-inline">
+                            <input type="password" id="deepseek-key-input" placeholder="sk-..." autocomplete="off">
+                            <button class="btn btn-secondary btn-sm" id="toggle-deepseek-key-btn"
+                                title="Show/Hide">Show</button>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <label>API Status</label>
+                        <button class="btn btn-secondary btn-sm" id="test-deepseek-btn"
+                            title="Test DeepSeek connection">
+                            <i class="fas fa-plug"></i> Test
+                        </button>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h4 data-i18n="import_export">Import / Export</h4>
+                    <div class="setting-item">
+                        <button class="btn btn-secondary" id="export-all-btn">
+                            <i class="fas fa-download"></i> <span data-i18n="export_all">Export All Projects</span>
+                        </button>
+                        <button class="btn btn-secondary" id="import-btn">
+                            <i class="fas fa-upload"></i> <span data-i18n="import_btn">Import Project</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h4 data-i18n="account">Account</h4>
+                    <div class="setting-item">
+                        <label data-i18n="current_plan">Current Plan</label>
+                        <span id="settings-plan">Free</span>
+                        <button class="btn btn-sm btn-primary" id="upgrade-plan-btn">
+                            <span data-i18n="upgrade">Upgrade</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="settings-section settings-about">
+                    <h4 data-i18n="about">About</h4>
+                    <div class="about-info">
+                        <div class="about-logo">
+                            <img src="icon.png" alt="Opticode">
+                        </div>
+                        <div class="about-text">
+                            <p class="about-name">Opticode v2.0</p>
+                            <p class="about-creator">Made by <strong>Cozytustudios</strong></p>
+                            <p class="about-creator">Founder: Sajid Hossain</p>
+                            <p class="about-desc">Professional AI-Powered Vibe Coding Platform</p>
+                            <p class="about-location">🇧🇩 Made in Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Selector Modal -->
+    <div id="theme-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <h3>Choose Theme</h3>
+            <div class="theme-options">
+                <button class="theme-option" data-theme="dark">
+                    <div class="theme-preview dark-preview"></div>
+                    <span>Dark</span>
+                </button>
+                <button class="theme-option" data-theme="light">
+                    <div class="theme-preview light-preview"></div>
+                    <span>Light</span>
+                </button>
+                <button class="theme-option" data-theme="midnight">
+                    <div class="theme-preview midnight-preview"></div>
+                    <span>Midnight</span>
+                </button>
+                <button class="theme-option" data-theme="forest">
+                    <div class="theme-preview forest-preview"></div>
+                    <span>Forest</span>
+                </button>
+                <button class="theme-option" data-theme="ocean">
+                    <div class="theme-preview ocean-preview"></div>
+                    <span>Ocean</span>
+                </button>
+                <button class="theme-option" data-theme="sunset">
+                    <div class="theme-preview sunset-preview"></div>
+                    <span>Sunset</span>
+                </button>
+                <button class="theme-option" data-theme="cozy">
+                    <div class="theme-preview cozy-preview"></div>
+                    <span>Cozy</span>
+                </button>
+                <button class="theme-option" data-theme="cozy-green">
+                    <div class="theme-preview cozy-green-preview"></div>
+                    <span>Cozy Green</span>
+                </button>
+                <button class="theme-option" data-theme="cozy-sepia">
+                    <div class="theme-preview cozy-sepia-preview"></div>
+                    <span>Cozy Sepia</span>
+                </button>
+                <button class="theme-option" data-theme="cozy-night">
+                    <div class="theme-preview cozy-night-preview"></div>
+                    <span>Cozy Night</span>
+                </button>
+                <button class="theme-option" data-theme="red">
+                    <div class="theme-preview red-preview"></div>
+                    <span>Red</span>
+                </button>
+                <button class="theme-option" data-theme="pink">
+                    <div class="theme-preview pink-preview"></div>
+                    <span>Pink</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Project Modal -->
+    <div id="new-project-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <h3 data-i18n="create_project">Create New Project</h3>
+            <div class="input-group">
+                <i class="fas fa-folder"></i>
+                <input type="text" id="project-name-input" placeholder="Project name">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-align-left"></i>
+                <textarea id="project-desc-input" placeholder="Project description (optional)"></textarea>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-primary" id="create-project-btn">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Picker Modal -->
+    <div id="project-picker-modal" class="modal hidden">
+        <div class="modal-content glass-panel large">
+            <div class="modal-header">
+                <h3><i class="fas fa-folder-open"></i> Choose a Project to Start</h3>
+                <button class="icon-btn close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p class="text-muted">Pick a project to code, or create/import a new one.</p>
+            <div class="project-picker-list" id="project-picker-list">
+                <!-- Dynamically filled -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="picker-import-btn"><i class="fas fa-file-import"></i>
+                    Import</button>
+                <button class="btn btn-primary" id="picker-new-btn"><i class="fas fa-plus"></i> New Project</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Selection Edit Modal -->
+    <div id="selection-edit-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3><i class="fas fa-pen"></i> Edit Selection</h3>
+                <button class="icon-btn close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p class="text-muted small">You can tweak just the highlighted code without touching the rest.</p>
+            <textarea id="selection-edit-input" rows="10" class="full-width"></textarea>
+            <label class="text-muted small" for="selection-edit-instruction">Tell AI what to change in this selected
+                code</label>
+            <textarea id="selection-edit-instruction" rows="4" class="full-width"
+                placeholder="Example: Make this button style rounded and add a hover animation."></textarea>
+            <div class="modal-actions">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-secondary" id="apply-selection-ai-btn">
+                    <i class="fas fa-wand-magic-sparkles"></i> Customize with AI
+                </button>
+                <button class="btn btn-primary" id="apply-selection-edit-btn">Apply Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Onboarding Tutorial Overlay -->
+    <div id="tutorial-overlay" class="tutorial-overlay hidden">
+        <div class="tutorial-card glass-panel">
+            <div class="tutorial-steps">
+                <div class="tutorial-step active" data-step="1">
+                    <div class="tutorial-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Welcome to Opticode</h3>
+                    <p>Experience the world's first professional vibe coding app. Let's show you how to get started!</p>
+                </div>
+                <div class="tutorial-step" data-step="2">
+                    <div class="tutorial-icon"><i class="fas fa-robot"></i></div>
+                    <h3>AI Coding Assistant</h3>
+                    <p>Chat with Optichain on the right side to generate code. Drag the divider to make AI bigger or
+                        smaller anytime.</p>
+                </div>
+                <div class="tutorial-step" data-step="3">
+                    <div class="tutorial-icon"><i class="fas fa-folder-tree"></i></div>
+                    <h3>Projects & Files</h3>
+                    <p>Create projects, manage files, and preview your app as you iterate — all in one place.</p>
+                </div>
+                <div class="tutorial-step" data-step="4">
+                    <div class="tutorial-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Vibe Themes</h3>
+                    <p>Switch cozy themes from the top bar or settings. Pink is available, plus warm cozy options for
+                        long coding sessions.</p>
+                </div>
+            </div>
+            <div class="tutorial-footer">
+                <div class="tutorial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="btn btn-primary" id="tutorial-next-btn">Next</button>
+                <button class="btn btn-secondary hidden" id="tutorial-finish-btn">Got it!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements for Sound Effects -->
+    <audio id="sound-click" preload="auto">
+        <source
+            src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJOrkpVwYmp5iaWriHNoa3aImpmBbmZpdIOYlIFuZmlzgJOPfXJpanB+jo2AdGtra3qJiYB3b2xseIaHgHlxbm54g4R/enNwb3d/gn57dXJxdHp9fHt3dHJzdHh6eXh2dHR0dnd3d3Z1dXV1dnZ2dnV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1"
+            type="audio/wav">
+    </audio>
+    <audio id="sound-success" preload="auto">
+        <source
+            src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAAB9fYKHjJGVmJqbnJuZl5OOiYN+eXV0c3N0dXd6fYGFiY2QkpSVlZWUko+MiIR/e3h2dXV2eHt/g4eKjZCRk5SUlJOSj4yIhH97eHZ1dXZ4e3+DiIuOkJKTlJSUk5KPjIiEf3t4dnV1dnh7f4OIi46QkpOUlJSTko+MiIR/e3h2dXV2eHt/g4iLjpCSlJSUlJOSj4yIhH97eHZ1"
+            type="audio/wav">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="env.js"></script>
+    <script src="i18n.js"></script>
+    <script src="utils.js"></script>
+    <script src="storage.js"></script>
+    <script src="auth.js"></script>
+    <script src="ai.js"></script>
+    <script src="editor.js"></script>
+    <script src="app.js"></script>
+    <script src="chat-enhanced.js"></script>
+    <script src="opticode-v3.js"></script>
+</body>
+
+</html>
